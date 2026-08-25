@@ -1,0 +1,21 @@
+{
+  "name": "quiet-jekyll-template",
+  "private": true,
+  "scripts": {
+    "blog:new": "node scripts/new-post.mjs",
+    "build": "bundle exec jekyll build --strict_front_matter",
+    "build:test": "node tests/build-test-site.cjs",
+    "dev": "bundle exec jekyll serve --drafts --livereload",
+    "docs:screenshots": "npm run build && node tests/capture-screenshots.cjs",
+    "test:compat": "npm run build:test && SITE_ROOT=_site-test node tests/compatibility.cjs",
+    "test:edge": "node tests/edge-cases.cjs",
+    "test:feed": "bundle exec ruby tests/feed-smoke.rb",
+    "test:portable": "node tests/portability.cjs",
+    "test:site": "node tests/site-smoke.cjs",
+    "verify": "ruby --version && bundle --version && npm run test:edge && npm run build && npm run test:site && npm run test:feed"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "playwright": "1.62.1"
+  }
+}

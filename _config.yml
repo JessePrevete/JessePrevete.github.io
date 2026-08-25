@@ -1,0 +1,143 @@
+# ---------------------------------------------------------------
+# quiet — site-wide settings live in this one file.
+# Edit a value, commit, and your connected static host rebuilds the site.
+# Optional display keys note when an empty value hides their output.
+# ---------------------------------------------------------------
+
+# Site name. Appears in the header, the browser tab, and your feed.
+title: Henry Adams
+
+# One-line bio shown on the home page under your site name.
+# Set to "" to hide it.
+tagline: Writing, systems, and making things better.
+
+# Search/social description for the site itself (posts use their own
+# `description` front matter). Often the same as the tagline.
+description: Personal notes and projects on systems, design, and software.
+
+# Used in the RSS feed and page metadata.
+author:
+  name: Henry Adams
+
+# Your site's canonical origin, without a trailing slash.
+# Example: https://username.github.io or https://blog.example.com.
+url: https://hjadmz.com
+
+# "" for a user site (username.github.io).
+# "/repo-name" for a project site (a repo not named username.github.io).
+baseurl: ""
+
+# Language code for the whole site (html lang attribute).
+lang: en
+
+# Your one accent color. Used for links, focus, text selection, and the
+# targeted-footnote state — not as decoration. Any valid CSS color works.
+# Leave "" for the built-in restrained blue, oklch(52% 0.1 250).
+accent: ""
+
+# Optional: a separate accent for dark mode (usually lighter and
+# slightly desaturated). Leave "" to reuse `accent` in dark mode too.
+#
+accent_dark: ""
+
+# Body typeface: "sans" or "serif". Both use system font stacks, so they
+# require no font download and follow the reader's platform typography.
+body_font: sans
+
+# Theme when a visitor first arrives: "system", "light", or "dark".
+# Visitors can change it with the toggle; their choice is remembered.
+theme_default: system
+
+# How many posts the home page lists before "all posts →".
+posts_on_home: 5
+
+# Date format for posts and the home list. "%b %-d, %Y" renders
+# "Aug 18, 2026". (The archive shows month + day under its year
+# headings.) See https://shopify.github.io/liquid/filters/date/.
+date_format: "%b %-d, %Y"
+
+# IANA timezone for post dates and feed timestamps.
+# e.g. America/New_York, Europe/Berlin, Asia/Tokyo.
+timezone: Etc/UTC
+
+# "· 6 min read" on posts. Set false to hide.
+show_reading_time: true
+
+# "built with quiet" line in the footer. Set false to remove it —
+# guilt-free, it's MIT.
+show_credit: true
+
+# Footer links. Each renders only if set.
+footer:
+  github: ""        # your GitHub username
+  email: ""             # e.g. you@example.com
+
+# Icons. Replace these files (or point these paths at your own).
+# /assets/img/favicon.ico is the legacy fallback — replace it in place.
+favicon: /assets/img/favicon.svg
+apple_touch_icon: /assets/img/apple-touch-icon.png
+
+# Default social-preview image: replace the file at
+# assets/img/og-default.png, or change the path in the `defaults:`
+# block at the bottom of this file. Posts can override it with
+# `image: /path.png` in their front matter.
+
+# Analytics are off by default and nothing is loaded from third
+# parties. If you must, paste a provider snippet as a single-quoted
+# one-liner (real snippets contain double quotes), e.g.
+# analytics_html: '<script data-goatcounter="https://CODE.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>'
+analytics_html: ""
+
+# ---------------------------------------------------------------
+# Engine settings. You shouldn't need to touch anything below,
+# except the social-image path in `defaults:` if you moved yours.
+# ---------------------------------------------------------------
+
+markdown: kramdown
+kramdown:
+  input: GFM            # fenced code, tables, autolinks
+  # text-presentation arrow: without &#xfe0e; iOS renders ↩ as a blue emoji
+  footnote_backlink: "&#8617;&#xfe0e;"
+highlighter: rouge
+
+# Explicitly use no packaged theme; the layouts link only this template's CSS.
+theme:
+
+permalink: /:year/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Give every page the default social image unless it sets its own,
+# and give posts the post layout so front matter stays minimal.
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og-default.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - THIRD_PARTY_NOTICES.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - docs
+  - .devcontainer
+  - .editorconfig
+  - .github
+  - .ruby-version
+  - .bundle
+  - vendor
+  - node_modules
+  - package.json
+  - package-lock.json
+  - tests
+  - _site-test
