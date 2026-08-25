@@ -5,23 +5,23 @@
 # ---------------------------------------------------------------
 
 # Site name. Appears in the header, the browser tab, and your feed.
-title: Henry Adams
+title: Jesse Prevete
 
 # One-line bio shown on the home page under your site name.
 # Set to "" to hide it.
-tagline: Writing, systems, and making things better.
+tagline: CS student documenting security labs and coursework.
 
 # Search/social description for the site itself (posts use their own
 # `description` front matter). Often the same as the tagline.
-description: Personal notes and projects on systems, design, and software.
+description: Security writeups and notes.
 
 # Used in the RSS feed and page metadata.
 author:
-  name: Henry Adams
+  name: Jesse Prevete
 
 # Your site's canonical origin, without a trailing slash.
 # Example: https://username.github.io or https://blog.example.com.
-url: https://hjadmz.com
+url: https://jesseprevete.dev
 
 # "" for a user site (username.github.io).
 # "/repo-name" for a project site (a repo not named username.github.io).
@@ -58,19 +58,19 @@ date_format: "%b %-d, %Y"
 
 # IANA timezone for post dates and feed timestamps.
 # e.g. America/New_York, Europe/Berlin, Asia/Tokyo.
-timezone: Etc/UTC
+timezone: America/New_York
 
 # "· 6 min read" on posts. Set false to hide.
 show_reading_time: true
 
 # "built with quiet" line in the footer. Set false to remove it —
 # guilt-free, it's MIT.
-show_credit: true
+show_credit: false
 
 # Footer links. Each renders only if set.
 footer:
-  github: ""        # your GitHub username
-  email: ""             # e.g. you@example.com
+  github: JessePrevete        # your GitHub username
+  email: jesseprevete@gmail.com             # e.g. you@example.com
 
 # Icons. Replace these files (or point these paths at your own).
 # /assets/img/favicon.ico is the legacy fallback — replace it in place.
