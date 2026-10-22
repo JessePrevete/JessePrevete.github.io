@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<script src="/assets/js/theme.js"></script>
+<script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 {% seo %}
 {% feed_meta %}
 {%- assign _fav = site.favicon | default: '/assets/img/favicon.svg' %}
