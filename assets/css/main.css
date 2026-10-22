@@ -471,4 +471,44 @@ div.highlighter-rouge.has-copy pre.highlight { padding-top: calc(var(--s2) + 36p
   a { color: inherit; }
   .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.875em; }
   pre.highlight { white-space: pre-wrap; word-break: break-word; border: 1px solid #ccc; }
+
+/* ---------- cve lookup ---------- */
+.cve-search {
+  display: flex;
+  gap: var(--s2);
+  margin-block-start: 1.35em;
 }
+.cve-search input {
+  flex: 1;
+  font: inherit;
+  font-size: var(--fs-meta);
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s2) var(--s3);
+}
+.cve-search button {
+  font: inherit;
+  font-size: var(--fs-meta);
+  color: var(--bg);
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--radius);
+  padding: var(--s2) var(--s4);
+  cursor: pointer;
+}
+.cve-search button:hover { opacity: 0.85; }
+.cve-results {
+  margin-block-start: var(--s6);
+}
+.cve-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s4) var(--s5);
+}
+.cve-attribution {
+  font-size: var(--fs-meta);
+  color: var(--fg-muted);
+}
+.cve-card + .cve-card { margin-block-start: var(--s3); }}
