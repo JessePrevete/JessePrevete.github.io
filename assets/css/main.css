@@ -471,6 +471,7 @@ div.highlighter-rouge.has-copy pre.highlight { padding-top: calc(var(--s2) + 36p
   a { color: inherit; }
   .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.875em; }
   pre.highlight { white-space: pre-wrap; word-break: break-word; border: 1px solid #ccc; }
+}
 
 /* ---------- cve lookup ---------- */
 .cve-search {
@@ -511,4 +512,4 @@ div.highlighter-rouge.has-copy pre.highlight { padding-top: calc(var(--s2) + 36p
   font-size: var(--fs-meta);
   color: var(--fg-muted);
 }
-.cve-card + .cve-card { margin-block-start: var(--s3); }}
+.cve-card + .cve-card { margin-block-start: var(--s3); }
