@@ -123,6 +123,9 @@ defaults:
     values:
       layout: post
 
+include:
+  - .well-known
+      
 exclude:
   - README.md
   - THIRD_PARTY_NOTICES.md
