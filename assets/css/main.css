@@ -508,6 +508,8 @@ div.highlighter-rouge.has-copy pre.highlight { padding-top: calc(var(--s2) + 36p
   border-radius: var(--radius);
   padding: var(--s4) var(--s5);
 }
+.cve-message { color: var(--fg-muted); }
+.cve-search button:disabled { opacity: 0.6; cursor: not-allowed; }
 .cve-attribution {
   font-size: var(--fs-meta);
   color: var(--fg-muted);
