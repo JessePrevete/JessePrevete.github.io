@@ -1,4 +1,11 @@
 <meta charset="utf-8">
+{%- comment %}
+  CSP check. Local testing only. Violations show up in the console while
+  you build.  
+{% endcomment %}
+{%- if jekyll.environment == "development" %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://services.nvd.nist.gov; object-src 'none'; base-uri 'self'; form-action 'self'">
+{%- endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="{{ '/assets/js/theme-init.js' | relative_url }}"></script>
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

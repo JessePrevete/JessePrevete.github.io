@@ -10,7 +10,12 @@ author:
 
 social:
   github: JessePrevete
-  linkedin: https://www.linkedin.com/in/jesse-prevete-62935b373//
+  linkedin: https://www.linkedin.com/in/jesse-prevete/
+  
+email: jesseprevete@gmail.com
+
+# Shown under the home intro. Leave empty to hide.
+availability: ""
 
 markdown: kramdown
 kramdown:

@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% include breadcrumbs.html %}
+<section class="hero">
+  <h1 class="hero-title">{{ page.headline }}</h1>
+  {%- if page.intro %}
+  <p class="hero-intro">{{ page.intro }}</p>
+  {%- endif %}
+  {%- if site.availability != "" and site.availability %}
+  <p class="hero-availability">{{ site.availability }} · <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+  {%- endif %}
+</section>
+
+{%- if site.data.featured.size > 0 %}
+<section class="home-section" aria-labelledby="featured-heading">
+  <h2 id="featured-heading" class="section-label">featured</h2>
+  <div class="card-grid">
+    {%- for item in site.data.featured %}
+    {% include card.html title=item.title summary=item.summary tags=item.tags url=item.url link=item.link %}
+    {%- endfor %}
+  </div>
+</section>
+{%- endif %}
+
+{{ content }}

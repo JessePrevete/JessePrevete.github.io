@@ -1,0 +1,22 @@
+{%- comment %}
+  A clickable card. Usage:
+  {% include card.html title="..." summary="..." tags=array url="/path/" link="Read more" %}
+
+  The title is the real link; its ::after stretches over the whole
+  card so the entire card is clickable, while screen readers hear one
+  clear link named after the title instead of "Read more".
+{% endcomment -%}
+<article class="card">
+  <h3 class="card-title"><a href="{{ include.url | relative_url }}">{{ include.title }}</a></h3>
+  {%- if include.summary %}
+  <p class="card-summary">{{ include.summary }}</p>
+  {%- endif %}
+  {%- if include.tags.size > 0 %}
+  <ul class="tags" aria-label="Tags">
+    {%- for tag in include.tags %}
+    <li>{{ tag }}</li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+  <span class="card-more" aria-hidden="true">{{ include.link | default: "Read more" }} →</span>
+</article>

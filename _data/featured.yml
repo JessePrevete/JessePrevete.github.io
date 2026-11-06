@@ -1,0 +1,8 @@
+# Featured work on the home page, in display order.
+# Each card links to "url". Remove an entry to unfeature it.
+
+- title: CVE lookup
+  summary: Search the National Vulnerability Database by CVE ID or keyword. Built with input validation and rate limiting.
+  tags: [javascript, nvd-api]
+  url: /cve-lookup/
+  link: Open tool

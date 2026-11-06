@@ -5,7 +5,13 @@
 {%- assign crumbs = page.url | remove_first: "/" | split: "/" -%}
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol>
-    <li><a href="{{ '/' | relative_url }}"><span aria-hidden="true">~</span><span class="visually-hidden">Home</span></a></li>
+        <li>
+      {%- if page.url == "/" %}
+      <span aria-current="page"><span aria-hidden="true">~</span><span class="visually-hidden">Home</span></span>
+      {%- else %}
+      <a href="{{ '/' | relative_url }}"><span aria-hidden="true">~</span><span class="visually-hidden">Home</span></a>
+      {%- endif %}
+    </li>
     {%- assign path = "/" %}
     {%- for crumb in crumbs %}
       {%- assign path = path | append: crumb | append: "/" %}
