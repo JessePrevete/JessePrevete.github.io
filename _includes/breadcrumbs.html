@@ -1,0 +1,20 @@
+{%- comment %}
+  Path-style breadcrumbs built from the page's URL:
+  /projects/hardening-this-site/  ->  ~ / projects / hardening-this-site
+{% endcomment -%}
+{%- assign crumbs = page.url | remove_first: "/" | split: "/" -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}"><span aria-hidden="true">~</span><span class="visually-hidden">Home</span></a></li>
+    {%- assign path = "/" %}
+    {%- for crumb in crumbs %}
+      {%- assign path = path | append: crumb | append: "/" %}
+      {%- assign label = crumb | remove: ".html" %}
+      {%- if forloop.last %}
+    <li><span aria-current="page">{{ label | escape }}</span></li>
+      {%- else %}
+    <li><a href="{{ path | relative_url }}">{{ label | escape }}</a></li>
+      {%- endif %}
+    {%- endfor %}
+  </ol>
+</nav>

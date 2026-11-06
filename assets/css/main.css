@@ -498,3 +498,54 @@ body {
     font-size: 1rem;
   }
 }
+
+/* ---------- 12. Breadcrumbs ---------- */
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The "/" between crumbs. The second line keeps screen readers
+   from announcing "slash"; older browsers ignore it and use the first. */
+.breadcrumbs li + li::before {
+  content: "/";
+  content: "/" / "";
+  margin: 0 0.5rem;
+}
+
+/* Links are at least 24px tall so they're easy to tap. */
+.breadcrumbs a {
+  display: inline-block;
+  min-height: 1.5rem;
+  line-height: 1.5rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--text);
+}
+/* The "~" is one character wide, so it gets extra tap area on
+   both sides. The negative margin keeps it lined up with the text. */
+.breadcrumbs li:first-child a {
+  min-width: 1.5rem;
+  padding: 0 0.5rem;
+  margin-left: -0.5rem;
+  text-align: center;
+}
+
+.breadcrumbs [aria-current] {
+  color: var(--accent);
+}
