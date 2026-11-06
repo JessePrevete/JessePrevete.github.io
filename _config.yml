@@ -30,3 +30,4 @@ exclude:
   - README.md
   - LICENSE
   - THIRD_PARTY_NOTICES.md
+  - tools
