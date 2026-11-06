@@ -214,3 +214,51 @@ img, svg {
 @media (max-width: 40rem) {
   :root { --gutter: 1rem; }
 }
+
+/* ---------- 5. Buttons ---------- */
+
+/* Square icon buttons: theme toggle now, mobile menu later. */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.375rem;
+  height: 2.375rem;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--btn-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.icon-button:hover {
+  background: var(--btn-hover);
+}
+.icon-button svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+
+/* ---------- 6. Theme toggle ---------- */
+
+/* Hidden unless JavaScript is running, since it can't work without it.
+   theme-init.js adds the "js" class to <html>. */
+.theme-toggle {
+  display: none;
+}
+.js .theme-toggle {
+  display: inline-flex;
+}
+
+/* Show the icon for the theme you'd switch TO:
+   a moon in light mode, a sun in dark mode. */
+.theme-toggle .icon-sun {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
