@@ -1,0 +1,216 @@
+/* ==========================================================
+   jesseprevete.dev
+   Copyright (c) 2026 Jesse Prevete. MIT License.
+   ========================================================== */
+
+/* ---------- 1. Fonts ----------
+   IBM Plex, self-hosted (SIL OFL 1.1, see assets/fonts/OFL.txt).
+   Latin1 files cover English text. The small "Pi" files add
+   arrows (→ ←); browsers only download them when an arrow
+   appears on the page, thanks to unicode-range. */
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-Regular-Latin1.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-Regular-Pi.woff2") format("woff2");
+  unicode-range: U+2190-2199;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-Medium-Latin1.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/IBMPlexSans-Italic-Latin1.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/IBMPlexMono-Regular-Pi.woff2") format("woff2");
+  unicode-range: U+2190-2199;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212, U+FB01-FB02;
+}
+
+
+/* ---------- 2. Design tokens ----------
+   Every color on the site comes from these variables.
+   Light is the default. Dark applies when:
+     - the visitor's system is dark and they haven't picked light, or
+     - they picked dark with the toggle (data-theme="dark").
+   The dark values appear twice because CSS can't share a block
+   between a media query and a selector. Edit both together. */
+
+:root {
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --bg: #ffffff;
+  --card: #fafafa;
+  --text: #18181b;
+  --muted: #52525b;
+  --line: #e4e4e7;
+  --accent: #0b7a4f;
+  --tag-bg: #e0f6eb;
+  --tag-text: #065738;
+  --btn-border: #8b8b94;
+  --btn-hover: #f4f4f5;
+
+  --code-bg: #1b1b1e;
+  --code-text: #ececee;
+
+  --measure: 40rem;   /* reading column width */
+  --page: 64rem;      /* full page width */
+  --gutter: 1.75rem;  /* page side padding */
+  --radius: 8px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131315;
+    --card: #1a1a1d;
+    --text: #ececee;
+    --muted: #a1a1aa;
+    --line: #27272a;
+    --accent: #37f499;
+    --tag-bg: #172a22;
+    --tag-text: #6fffc1;
+    --btn-border: #6b6b74;
+    --btn-hover: #202024;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #131315;
+  --card: #1a1a1d;
+  --text: #ececee;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --accent: #37f499;
+  --tag-bg: #172a22;
+  --tag-text: #6fffc1;
+  --btn-border: #6b6b74;
+  --btn-hover: #202024;
+  color-scheme: dark;
+}
+
+
+/* ---------- 3. Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 2rem 0 0.75rem;
+}
+h1 { font-size: 1.75rem; margin-top: 0; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.125rem; }
+
+p { margin: 0 0 1rem; }
+
+/* The site loads Plex at 400 and 500 only. Without this, browsers
+   fake a heavier "bold" for <strong> by smearing the 500 weight. */
+strong, b { font-weight: 500; }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* One focus style for every link, button, and input */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* ---------- 4. Layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.prose {
+  max-width: var(--measure);
+}
+
+@media (max-width: 40rem) {
+  :root { --gutter: 1rem; }
+}
