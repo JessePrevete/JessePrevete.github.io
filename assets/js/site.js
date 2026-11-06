@@ -54,3 +54,51 @@
 
   updateLabel();
 })();
+
+// ---------- Mobile menu ----------
+(function () {
+  var header = document.querySelector(".site-header");
+  var nav = document.querySelector(".site-nav");
+  var button = document.querySelector(".menu-toggle");
+  if (!header || !nav || !button) return;
+
+  // Must match the breakpoint in main.css (section 11).
+  var narrow = window.matchMedia("(max-width: 40rem)");
+
+  function isOpen() {
+    return header.classList.contains("menu-open");
+  }
+
+  function setOpen(open) {
+    header.classList.toggle("menu-open", open);
+    button.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  button.addEventListener("click", function () {
+    setOpen(!isOpen());
+  });
+
+  // Escape closes the menu and puts focus back on the button.
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && isOpen()) {
+      setOpen(false);
+      button.focus();
+    }
+  });
+
+  // Clicking anywhere outside the header closes it.
+  document.addEventListener("click", function (e) {
+    if (isOpen() && !header.contains(e.target)) setOpen(false);
+  });
+
+  // Tabbing past the last link closes it, so it never sits open
+  // over the page while focus is somewhere else.
+  nav.addEventListener("focusout", function (e) {
+    if (isOpen() && e.relatedTarget && !nav.contains(e.relatedTarget)) setOpen(false);
+  });
+
+  // Widening the window past the breakpoint resets the menu.
+  narrow.addEventListener("change", function (e) {
+    if (!e.matches) setOpen(false);
+  });
+})();

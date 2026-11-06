@@ -432,3 +432,69 @@ body {
   width: 1.25rem;
   height: 1.25rem;
 }
+
+/* ---------- 11. Mobile menu ---------- */
+
+/* The menu button only exists on narrow screens. */
+.menu-toggle {
+  display: none;
+}
+
+/* Show the X while the menu is open, the three lines while closed. */
+.menu-toggle .icon-close {
+  display: none;
+}
+.menu-open .menu-toggle .icon-open {
+  display: none;
+}
+.menu-open .menu-toggle .icon-close {
+  display: block;
+}
+
+@media (max-width: 40rem) {
+  .site-header {
+    position: relative;
+  }
+  .header-actions {
+    gap: 0.5rem;
+  }
+
+  /* Without JavaScript the links stay visible and wrap if needed. */
+  .site-nav ul {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    column-gap: 1rem;
+    row-gap: 0.25rem;
+  }
+
+  /* With JavaScript the links fold behind the menu button. */
+  .js .menu-toggle {
+    display: inline-flex;
+  }
+  .js .site-nav ul {
+    display: none;
+  }
+
+  /* Open menu: a full-width panel under the header. */
+  .js .menu-open .site-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 0.25rem var(--gutter) 0.75rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .js .menu-open .site-nav li + li {
+    border-top: 1px solid var(--line);
+  }
+  .js .menu-open .site-nav a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+  }
+}
