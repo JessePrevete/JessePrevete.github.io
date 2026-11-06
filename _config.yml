@@ -8,6 +8,10 @@ timezone: America/New_York
 author:
   name: Jesse Prevete
 
+social:
+  github: JessePrevete
+  linkedin: https://www.linkedin.com/in/jesse-prevete-62935b373//
+
 markdown: kramdown
 kramdown:
   input: GFM

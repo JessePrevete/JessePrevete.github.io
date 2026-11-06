@@ -1,0 +1,19 @@
+# Main navigation, in the order it appears on the site.
+# Links with a "collection" stay hidden until that collection
+# has at least "min" items, so empty sections never show.
+
+- title: Projects
+  url: /projects/
+  collection: projects
+  min: 2
+
+- title: Write-ups
+  url: /writeups/
+  collection: writeups
+  min: 1
+
+- title: CVE lookup
+  url: /cve-lookup/
+
+- title: About
+  url: /about/

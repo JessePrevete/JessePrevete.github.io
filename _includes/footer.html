@@ -1,0 +1,26 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-copy">&copy; {{ site.time | date: "%Y" }} {{ site.author.name | escape }}</p>
+
+    <ul class="footer-links">
+      <li>
+        <a href="https://github.com/{{ site.social.github }}" title="GitHub">
+          <span aria-hidden="true">{% include icons/brand-github.svg %}</span>
+          <span class="visually-hidden">GitHub</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ site.social.linkedin }}" title="LinkedIn">
+          <span aria-hidden="true">{% include icons/brand-linkedin.svg %}</span>
+          <span class="visually-hidden">LinkedIn</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/about/#contact' | relative_url }}" title="PGP key and contact">
+          <span aria-hidden="true">{% include icons/key.svg %}</span>
+          <span class="visually-hidden">PGP key and contact</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
