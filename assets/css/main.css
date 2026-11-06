@@ -311,7 +311,6 @@ body {
   padding: 0.5rem 0.875rem;
   background: var(--bg);
   color: var(--text);
-  border: 1.5px solid var(--accent);
   border-radius: var(--radius);
   text-decoration: none;
   transform: translateY(-200%);
