@@ -1,0 +1,16 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:jesseprevete@gmail.com
+Expires: 2027-10-21T21:30:00.000Z
+Encryption: https://jesseprevete.dev/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://jesseprevete.dev/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iJEEARYKADkWIQRsElQgxiXAauuXXAx9ZFxdCj4WiQUCatqcFxsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwwLDMACgkQfWRcXQo+FokcRAEAudQW/JlTMiZBb8K4J3r7
+7Dw+5jlTU3GZ/eqacR1NmEAA/RCgBUGrY7zEmgH5QpJumFcYhCUekk5IzvL6bOQr
+AqMF
+=xrjI
+-----END PGP SIGNATURE-----

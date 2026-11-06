@@ -1,0 +1,28 @@
+title: Jesse Prevete
+description: Computer science student focused on cybersecurity.
+url: https://jesseprevete.dev
+baseurl: ""
+lang: en
+timezone: America/New_York
+
+author:
+  name: Jesse Prevete
+
+markdown: kramdown
+kramdown:
+  input: GFM
+highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Jekyll skips dot-folders by default; security.txt lives in one
+include:
+  - .well-known
+
+exclude:
+  - README.md
+  - LICENSE
+  - THIRD_PARTY_NOTICES.md
