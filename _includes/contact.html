@@ -1,0 +1,19 @@
+<section class="about-section" id="contact" aria-labelledby="contact-heading">
+  <h2 id="contact-heading">Contact</h2>
+
+  <dl class="contact-list">
+    <dt>email</dt>
+    <dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+  </dl>
+
+  <div class="pgp">
+    <div class="pgp-header">
+      <span class="pgp-label" id="pgp-label">PGP fingerprint</span>
+      <button class="copy-button" type="button" data-copy="pgp-fingerprint" aria-describedby="pgp-label">Copy</button>
+    </div>
+    <p class="pgp-fingerprint" id="pgp-fingerprint">{{ site.pgp.fingerprint }}</p>
+    <p class="pgp-links">
+      <a href="{{ site.pgp.key | relative_url }}">Public key</a>
+    </p>
+  </div>
+</section>

@@ -102,3 +102,41 @@
     if (!e.matches) setOpen(false);
   });
 })();
+
+// ---------- Copy buttons ----------
+// Any <button data-copy="some-id"> copies the text of the element
+// with that id. Buttons stay hidden unless the browser can copy.
+(function () {
+  if (!navigator.clipboard || !window.isSecureContext) return;
+  document.documentElement.classList.add("can-copy");
+
+  // One shared, invisible message area so screen readers hear "Copied".
+  var status = document.createElement("span");
+  status.className = "visually-hidden";
+  status.setAttribute("role", "status");
+  document.body.appendChild(status);
+
+  document.querySelectorAll("[data-copy]").forEach(function (button) {
+    var label = button.textContent;
+    var timer;
+
+    function show(message) {
+      button.textContent = message;
+      status.textContent = message;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        button.textContent = label;
+        status.textContent = "";
+      }, 2000);
+    }
+
+    button.addEventListener("click", function () {
+      var target = document.getElementById(button.getAttribute("data-copy"));
+      if (!target) return;
+      navigator.clipboard.writeText(target.textContent.trim()).then(
+        function () { show("Copied"); },
+        function () { show("Copy failed"); }
+      );
+    });
+  });
+})();

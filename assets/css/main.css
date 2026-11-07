@@ -662,7 +662,8 @@ body {
   padding: 0;
   list-style: none;
 }
-.tags li {
+.tags li,
+.tag {
   padding: 0.125rem 0.5rem;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
@@ -670,4 +671,107 @@ body {
   color: var(--tag-text);
   background: var(--tag-bg);
   border-radius: 5px;
+}
+
+/* ---------- 15. About and contact ---------- */
+
+.about-section {
+  margin-top: 2.5rem;
+}
+
+/* Certifications: one row per cert, date as a green tag. */
+.cert-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.cert-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.cert-name {
+  flex: 1;
+  min-width: 12rem;
+}
+.cert-issuer {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* Contact rows: small mono label, then the value. */
+.contact-list {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1.25rem;
+}
+.contact-list dt {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  line-height: 1.7rem;
+}
+.contact-list dd {
+  margin: 0;
+}
+
+/* PGP box: styled like a card. */
+.pgp {
+  padding: 0.875rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.pgp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+.pgp-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.pgp-fingerprint {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+.pgp-links {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 16. Copy buttons ---------- */
+
+/* Hidden unless the browser can copy (site.js adds "can-copy"). */
+.copy-button {
+  display: none;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.can-copy .copy-button {
+  display: inline-flex;
+}
+.copy-button:hover {
+  color: var(--accent);
+  background: var(--btn-hover);
 }

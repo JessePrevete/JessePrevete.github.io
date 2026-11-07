@@ -1,0 +1,22 @@
+{%- comment %}
+  Earned certifications from _data/certifications.yml.
+  Renders nothing until that list has at least one entry.
+{% endcomment -%}
+{%- if site.data.certifications.size > 0 %}
+<section class="about-section" aria-labelledby="certs-heading">
+  <h2 id="certs-heading">Certifications</h2>
+  <ul class="cert-list">
+    {%- for cert in site.data.certifications %}
+    <li>
+      <span class="cert-name">
+        {%- if cert.url %}<a href="{{ cert.url }}">{{ cert.name }}</a>{% else %}{{ cert.name }}{% endif -%}
+      </span>
+      {%- if cert.issuer %}
+      <span class="cert-issuer">{{ cert.issuer }}</span>
+      {%- endif %}
+      <time class="tag" datetime="{{ cert.earned | date: '%Y-%m-%d' }}">{{ cert.earned | date: "%b %Y" }}</time>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
