@@ -846,6 +846,36 @@ body {
   color: var(--muted);
 }
 
+/* "Show latest CVEs": a text-style button inside the hint line.
+   Hidden without JavaScript, since it can't work without it. */
+.cve-latest {
+  display: none;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.js .cve-latest {
+  display: inline;
+}
+.cve-latest:disabled {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: not-allowed;
+}
+
+/* Label above "latest" results. */
+.cve-note {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
 /* Results: cards built by cve-lookup.js. */
 .cve-results {
   display: grid;
